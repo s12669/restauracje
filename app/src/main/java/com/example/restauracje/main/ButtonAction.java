@@ -1,4 +1,4 @@
-package com.example.restauracje.enums;
+package com.example.restauracje.main;
 
 public enum ButtonAction {
     UPDATE,

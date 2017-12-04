@@ -1,9 +1,10 @@
-package com.example.restauracje;
+package com.example.restauracje.main;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -16,7 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.restauracje.models.Restaurant;
+import com.example.restauracje.R;
+import com.example.restauracje.model.Restaurant;
 import com.example.restauracje.permission.PermissionManager;
 import com.example.restauracje.permission.iPermissionManager;
 
@@ -40,10 +42,8 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
             PermissionManager.makeRequest(this, Manifest.permission.ACCESS_FINE_LOCATION, 1);
         }
 
-        ListView restaurantsList = (ListView) findViewById(R.id.restaurantListView);
+        ListView restaurantsList = findViewById(R.id.restaurantListView);
         db = new DatabaseHandler(this);
-
-//        db.onUpgrade(db.getWritableDatabase(),1,1);  //force to recreate database
 
         restaurants = db.getRestaurants();
         adapter = getMyArrayAdapter();
@@ -67,13 +67,12 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
     }
 
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
             Log.i("Permission", "Permission has been denied by user");
         } else {
             Log.i("Permission", "Permission has been granted by user");
         }
-        return;
     }
 
     @Override
@@ -98,11 +97,12 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
 
     public ArrayAdapter<Restaurant> getMyArrayAdapter(){
         return new ArrayAdapter<Restaurant>(this, android.R.layout.simple_list_item_2, android.R.id.text1, restaurants) {
+            @NonNull
             @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                TextView text1 = view.findViewById(android.R.id.text1);
+                TextView text2 = view.findViewById(android.R.id.text2);
 
                 int MAX_LEN = 70;
                 String desc = restaurants.get(position).getDescription();

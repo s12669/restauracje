@@ -63,6 +63,7 @@ public class RestaurantMap extends Fragment implements OnMapReadyCallback, iMyLo
             @Override
             public void onReceive(Context context, Intent intent) {
                 Bundle extras = intent.getExtras();
+                assert extras != null;
                 if(extras.getBoolean("showAlert")){
                     showAlert();
                 }
@@ -78,7 +79,7 @@ public class RestaurantMap extends Fragment implements OnMapReadyCallback, iMyLo
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        distance = (TextView) getActivity().findViewById(R.id.distance);
+        distance = getActivity().findViewById(R.id.distance);
 
         Geocoder geocoder = new Geocoder(getContext());
         Toast toast = Toast.makeText(getContext(), getText(R.string.location_not_found), Toast.LENGTH_SHORT);
@@ -98,7 +99,6 @@ public class RestaurantMap extends Fragment implements OnMapReadyCallback, iMyLo
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap = googleMap;
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && address != null) {
             LatLng restaurant = new LatLng(address.getLatitude(), address.getLongitude());
@@ -121,7 +121,7 @@ public class RestaurantMap extends Fragment implements OnMapReadyCallback, iMyLo
         Location locationTo = new Location("To");
         locationTo.setLatitude(address.getLatitude());
         locationTo.setLongitude(address.getLongitude());
-        if(distance != null && deviceLatLng.latitude != 0.0 && deviceLatLng.longitude != 00)
+        if(distance != null && deviceLatLng.latitude != 0.0 && deviceLatLng.longitude != 0)
             distance.setText(String.valueOf(locationFrom.distanceTo(locationTo)/1000) + " km");
     }
 

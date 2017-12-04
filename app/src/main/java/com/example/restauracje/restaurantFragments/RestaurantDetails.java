@@ -22,10 +22,10 @@ public class RestaurantDetails extends Fragment implements View.OnClickListener 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TextView restaurantName = (TextView) getView().findViewById(R.id.restaurantNameTV);
-        TextView restaurantDescription = (TextView) getView().findViewById(R.id.restaurantDescription);
-        TextView restaurantLocation = (TextView) getView().findViewById(R.id.restaurantLocationTV);
-        ImageButton showOnMap = (ImageButton) getView().findViewById(R.id.showOnMap);
+        TextView restaurantName = getView().findViewById(R.id.restaurantNameTV);
+        TextView restaurantDescription = getView().findViewById(R.id.restaurantDescription);
+        TextView restaurantLocation = getView().findViewById(R.id.restaurantLocationTV);
+        ImageButton showOnMap = getView().findViewById(R.id.showOnMap);
 
 
         restaurantName.setText(getArguments().getString("Name"));

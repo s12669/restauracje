@@ -1,4 +1,4 @@
-package com.example.restauracje;
+package com.example.restauracje.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.restauracje.enums.ButtonAction;
-import com.example.restauracje.models.Restaurant;
+import com.example.restauracje.R;
+import com.example.restauracje.model.Restaurant;
 
 public class RestaurantFormActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,10 +24,10 @@ public class RestaurantFormActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_form);
 
-        name = (TextView) findViewById(R.id.restaurantName);
-        street = (TextView) findViewById(R.id.restaurantStreet);
-        city = (TextView) findViewById(R.id.restaurantCity);
-        description = (TextView) findViewById(R.id.restaurantDescription);
+        name = findViewById(R.id.restaurantName);
+        street = findViewById(R.id.restaurantStreet);
+        city = findViewById(R.id.restaurantCity);
+        description = findViewById(R.id.restaurantDescription);
         db = new DatabaseHandler(this);
 
         Intent intent = getIntent();
@@ -81,7 +81,7 @@ public class RestaurantFormActivity extends AppCompatActivity implements View.On
 
     public void setButtonAction(ButtonAction action){
         this.action = action;
-        Button actionButton = (Button) findViewById(R.id.restaurantBtn);
+        Button actionButton = findViewById(R.id.restaurantBtn);
         setTitle(action == ButtonAction.SAVE ? getText(R.string.new_restaurant) : getText(R.string.update_restaurant));
         actionButton.setText(action == ButtonAction.SAVE ? getString(R.string.save_restaurant) : getString(R.string.update_restaurant));
         actionButton.setOnClickListener(this);

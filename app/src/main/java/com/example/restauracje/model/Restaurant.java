@@ -1,4 +1,4 @@
-package com.example.restauracje.models;
+package com.example.restauracje.model;
 
 import java.io.Serializable;
 
