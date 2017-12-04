@@ -29,4 +29,9 @@
     <string name="nazwa">name</string>
     <string name="lok">location</string>
     <string name="op">description</string>
+    <string name="information">Information</string>
+    <string name="info_add">To add a new restaurant tap the three dots menu icon and select the New restaurantoption.</string>
+    <string name="info_edit_delete">To edit or delete existing restaurant tap and hold selected item on the list.</string>
+    <string name="welcome">WELCOME</string>
+    <string name="enter">ENTER</string>
 </resources>

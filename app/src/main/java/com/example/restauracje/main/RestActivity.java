@@ -1,6 +1,7 @@
 package com.example.restauracje.main;
 
 import android.Manifest;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -47,6 +48,7 @@ public class RestActivity extends AppCompatActivity implements iFragmentChange {
 
         if (PermissionManager.hasPermissionTo(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
             canDisplayMap = true;
+            if((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)
             showMapFragment();
         }
 
@@ -61,7 +63,7 @@ public class RestActivity extends AppCompatActivity implements iFragmentChange {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (findViewById(R.id.fragment_map) != null) {
-            restaurantMap.setArguments(restaurant_data);
+//            restaurantMap.setArguments(restaurant_data);
             fragmentManager.beginTransaction().add(R.id.fragment_map, restaurantMap, "map").commit();
         }
         if (findViewById(R.id.fragment_map) == null) {

@@ -82,7 +82,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:contentDescription="@string/location"
-                    android:src="@android:drawable/ic_dialog_map"
+                    android:src="@drawable/location"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
