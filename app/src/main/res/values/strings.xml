@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Restauracje</string>
+    <string name="description">Opis:</string>
+    <string name="name">Nazwa:</string>
+    <string name="location">Lokalizacja:</string>
+    <string name="new_restaurant">Nowa restauracja</string>
+    <string name="about_app">O Aplikacji</string>
+    <string name="address">Adres:</string>
+    <string name="save_restaurant">Zapisz restaurację</string>
+    <string name="update_restaurant">Aktualizuj restaurację</string>
+    <string name="cancel">Anuluj</string>
+    <string name="hint_name">Nazwa restauracji</string>
+    <string name="hint_street">Ulica</string>
+    <string name="hint_city">Miasto</string>
+    <string name="hint_description">Opis restauracji</string>
+    <string name="restaurant_street_required">Ulica jest wymagana</string>
+    <string name="restaurant_city_required">Miasto jest wymagane</string>
+    <string name="location_not_found">Lokalizacja nie została odnaleziona na mapie.</string>
+    <string name="enable_location">Włącz lokalizację</string>
+    <string name="settings">Ustawienia</string>
+    <string name="location_is_off">Lokalizacja jest wyłączona.</string>
+    <string name="please_enable_location">Proszę włączyć lokalizację.</string>
+    <string name="distance">Odległość:</string>
+    <string name="gps_is_off">GPS jest wyłączony</string>
+    <string name="no_data">Brak danych</string>
+    <string name="unable_to_show_map">Nie można wyświetlić mapy.</string>
+    <string name="location_permission_disable">Uprawnienia do lokalizacji są wyłączone.</string>
+    <string name="enable_location_permission">Włacz uprawnienia do lokalizacji w ustawieniach aplikacji.</string>
+</resources>
