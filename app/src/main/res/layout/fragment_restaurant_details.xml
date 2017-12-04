@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cast_intro_overlay_button_background_color"
     tools:context="com.example.restauracje.RestaurantActivity">
 
     <ScrollView
@@ -80,11 +81,11 @@
                     android:id="@+id/showOnMap"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:src="@android:drawable/ic_dialog_map"
-                    tools:layout_editor_absoluteY="0dp"
                     android:layout_marginLeft="8dp"
+                    android:contentDescription="@string/location"
+                    android:src="@android:drawable/ic_dialog_map"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:contentDescription="@string/location"/>
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <TextView
                     android:id="@+id/restaurantLocationTV"
