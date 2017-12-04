@@ -20,12 +20,11 @@ import android.widget.TextView;
 import com.example.restauracje.R;
 import com.example.restauracje.model.Restaurant;
 import com.example.restauracje.permission.PermissionManager;
-import com.example.restauracje.permission.iPermissionManager;
 
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements iPermissionManager, AdapterView.OnItemClickListener{
+public class ListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private List<Restaurant> restaurants;
     private ArrayAdapter<Restaurant> adapter;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list);
 
         if(!PermissionManager.hasPermissionTo(this, Manifest.permission.ACCESS_FINE_LOCATION)){
             PermissionManager.makeRequest(this, Manifest.permission.ACCESS_FINE_LOCATION, 1);
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.new_restaurant:
-                Intent intent = new Intent(getApplicationContext(), RestaurantFormActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RestForm.class);
                 intent.putExtra("RESTAURANT_ID", 0L);
                 startActivity(intent);
                 break;
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(getApplicationContext(), RestaurantActivity.class);
+        Intent intent = new Intent(getApplicationContext(), RestActivity.class);
         int position = i+1;
         intent.putExtra("RESTAURANT_ID", position);
         startActivity(intent);
@@ -120,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        menu.setHeaderTitle("My Context Menu");
         menu.add(Menu.NONE, CONTEXT_MENU_EDIT, Menu.NONE, "Edit");
         menu.add(Menu.NONE, CONTEXT_MENU_DELETE, Menu.NONE, "Delete");
     }
@@ -130,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements iPermissionManage
         long restaurant_id = menuinfo.id+1;
         switch (item.getItemId()) {
             case CONTEXT_MENU_EDIT:
-                Intent i = new Intent(this, RestaurantFormActivity.class);
+                Intent i = new Intent(this, RestForm.class);
                 i.putExtra("RESTAURANT_ID", restaurant_id);
                 startActivity(i);
                 break;

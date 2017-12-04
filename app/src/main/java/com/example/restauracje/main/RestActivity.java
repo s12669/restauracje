@@ -15,7 +15,7 @@ import com.example.restauracje.restaurantFragments.RestaurantMap;
 import com.example.restauracje.restaurantFragments.iFragmentChange;
 
 
-public class RestaurantActivity extends AppCompatActivity implements iFragmentChange {
+public class RestActivity extends AppCompatActivity implements iFragmentChange {
 
     private int restaurant_id = 0;
     private Bundle restaurant_data;

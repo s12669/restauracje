@@ -14,14 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.restauracje.main.MainActivity">
+        <activity android:name="com.example.restauracje.main.ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.restauracje.main.RestaurantActivity" />
+        <activity android:name="com.example.restauracje.main.RestActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -32,7 +32,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.example.restauracje.main.RestaurantFormActivity"
+            android:name="com.example.restauracje.main.RestForm"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <service android:name="com.example.restauracje.location.MyLocation" />

@@ -73,7 +73,7 @@ public class RestaurantMap extends Fragment implements OnMapReadyCallback, iMyLo
         };
         LocalBroadcastManager.getInstance(getContext()).registerReceiver((broadcastReceiver), new IntentFilter(MyLocation.SERVICE_RESULT));
 
-        return inflater.inflate(R.layout.fragment_restaurant_map, container, false);
+        return inflater.inflate(R.layout.fragment_map, container, false);
     }
 
     @Override

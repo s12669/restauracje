@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.example.restauracje.R;
 import com.example.restauracje.model.Restaurant;
 
-public class RestaurantFormActivity extends AppCompatActivity implements View.OnClickListener {
+public class RestForm extends AppCompatActivity implements View.OnClickListener {
 
     private TextView name, street, city, description;
     private ButtonAction action;
@@ -22,7 +22,7 @@ public class RestaurantFormActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_form);
+        setContentView(R.layout.activity_form);
 
         name = findViewById(R.id.restaurantName);
         street = findViewById(R.id.restaurantStreet);

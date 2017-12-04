@@ -15,7 +15,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "projekt";
+    private static final String DATABASE_NAME = "restauracje";
     private static final String TABLE_RESTAURANTS = "restaurants";
 
     private static final String KEY_ID = "id";
@@ -65,7 +65,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     Restaurant getRestaurant(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-
 
         Cursor cursor = db.query(TABLE_RESTAURANTS, new String[]{KEY_ID,
                         KEY_NAME, KEY_DESCRIPTION, KEY_STREET, KEY_CITY, KEY_POSTAL_CODE}, KEY_ID + "=?",
@@ -118,27 +117,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 new String[]{String.valueOf(restaurant.getID())});
     }
 
-//    public void deleteRestaurant(Restaurant restaurant) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.delete(TABLE_RESTAURANTS, KEY_ID + " = ?",
-//                new String[] { String.valueOf(restaurant.getID()) });
-//        db.close();
-//    }
-
     void deleteRestaurant(long id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_RESTAURANTS, KEY_ID + " = ?", new String[]{String.valueOf(id)});
         db.close();
     }
 
-//    public int getRestaurantsCount() {
-//        String countQuery = "SELECT  * FROM " + TABLE_RESTAURANTS;
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(countQuery, null);
-//        int count = cursor.getCount();
-//        cursor.close();
-//
-//        // return count
-//        return count;
-//    }
 }
